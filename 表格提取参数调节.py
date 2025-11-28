@@ -12,3 +12,23 @@ df = pd.read_excel(
 )
 
 读取工作表
+
+
+
+X1=df[cost_columns]   #成本型指标
+        X2=df[benefit_columns]   #效益型指标
+        m1,n1=X1.shape
+        m2,n2=X2.shape
+        x1min=X1.min(axis=0)
+        x1max=X1.max(axis=0)
+        x1maxmin=x1max-x1min
+        x2min=X2.min(axis=0)
+        x2max=X2.max(axis=0)
+        x2maxmin=x2max-x2min
+        
+        for i in range(m1):
+            for j in range(n1):
+                X1[i, j] = (x1max[j] - X1[i, j]) / x1maxmin[j] #逆向处理
+        for i in range(m2):
+            for j in range(n2):
+                X2[i,j] = (X2[i,j]-x2min[j])/ x2maxmin[j] #正向处理
