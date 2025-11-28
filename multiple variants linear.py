@@ -64,7 +64,7 @@ class tourismmodel:
          Y=df['M']
 
          #自变量归一化
-         X_scaled=self.scaler.fit_transform(X) #归一化自变量
+         X_scaled=self.scaler.fit_transform(X)  #归一化自变量
          X=pd.DataFrame(X_scaled,columns=X.columns,index=X.index) #保留原来的列名和索引
         
         #按照时间顺序数排列数据
