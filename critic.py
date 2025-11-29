@@ -87,7 +87,7 @@ def topsis(X_standard,weight_row,lenth):
      dist_worst = np.sqrt(np.sum((X_weight - Vmin) ** 2, axis=1))
 
      #得到相对贴近度（每年的交通指数）
-     T=[float(dist_worst[i])/float((dist_best[i]+dist_worst[i])) for i in range(lenth)]
+     T=np.array([float(dist_worst[i])/float((dist_best[i]+dist_worst[i])) for i in range(lenth)])
      return T
 
 #熵权法,忽略变量相关性

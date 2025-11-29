@@ -34,4 +34,4 @@ T1=topsis(Critic.preproc(df,cost_columns,benefit_columns),weight_critic,11)
 #熵权法
 weight_entro=entropy(df,cost_columns,benefit_columns)
 T2=topsis(Critic.preproc(df,cost_columns,benefit_columns),weight_entro,11)
-print(T1,T2)
+print(T1)

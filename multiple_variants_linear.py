@@ -13,29 +13,10 @@ import numpy as np
 plt.rcParams['font.sans-serif'] = ['SimHei']
 plt.rcParams['axes.unicode_minus'] = False
 
+ExcelFile=pd.ExcelFile("三亚过夜游客统计新表.xlsx")
+df=pd.read_excel(ExcelFile,skiprows=0,usecols="B:F",sheet_name="Sheet6")
+df.columns=["总收入","游客数量","交通指数","环境指数","海南省A级景区数"]
 
-#测试数据集
-
-excel_file = pd.ExcelFile("testdata.xlsx")
-df = pd.read_excel(excel_file, sheet_name="Sheet1", skiprows=[0], usecols="A:G")
-df.columns = ['YEAR', 'M', 'T', 'R', 'V', 'E', 'D']
-
-# 创建单独的变量（从DataFrame中提取）
-YEAR = df['YEAR'].tolist()
-M = df['M'].tolist()
-T = df['T'].tolist()
-R = df['R'].tolist()
-V = df['V'].tolist()
-E = df['E'].tolist()
-D = df['D'].tolist()
-#提取数据
-
-
-
-#读取工作表   届时提取相关行列的数据
-
-#将数据整合成Dataframe格式
-df=pd.DataFrame({"M":M,"T":T,"R":R,"V":V,"E":E,"D":D})
 
 class tourismmodel:
     #初始化模型   
@@ -53,19 +34,20 @@ class tourismmodel:
         plt.figure(figsize=(10, 8))
         sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', center=0,
                    square=True, fmt='.3f')
-        plt.title('变量间相关性热力图')
+        plt.title(f'{df.columns.tolist()}间相关性热力图')
         plt.tight_layout()
-        plt.savefig("变量间相关性热力图",bbox_inches="tight",dpi=128)
+        plt.savefig(f'{df.columns.tolist()}间相关性热力图',bbox_inches="tight",dpi=128)
 
 
     def modeling(self,df):
          #数据准备
-         X=df[['T','R','V','E','D']]
-         Y=df['M']
+         X=df[["游客数量","交通指数","环境指数","海南省A级景区数"]]
+         Y=df['总收入']
 
          #自变量归一化
-         X_scaled=self.scaler.fit_transform(X)  #归一化自变量
-         X=pd.DataFrame(X_scaled,columns=X.columns,index=X.index) #保留原来的列名和索引
+         X[["游客数量","海南省A级景区数"]]=self.scaler.fit_transform(X[["游客数量","海南省A级景区数"]])  #归一化自变量
+       
+         
         
         #按照时间顺序数排列数据
          #df=df.sort_values["年份"]
@@ -79,7 +61,7 @@ class tourismmodel:
          r2 = r2_score(Y, Y_pred)
          mse = mean_squared_error(Y, Y_pred)
          rmse = np.sqrt(mse)
-         ra2=1-(1-r2)*(len(df)-1)/(len(df)-6-1) #复判定系数削弱多自变量的影响
+         ra2=1-(1-r2)*(len(df)-1)/(len(df)-len(X.columns)-1) #复判定系数削弱多自变量的影响
          print(f"\n=== 模型评估结果 ===")
          print(f"截距 (β₀): {self.model.intercept_:.2f}")
          print("回归系数:")
@@ -92,5 +74,4 @@ class tourismmodel:
          print(f"RMSE: {rmse:.2f}")
          print(f"Ra²: {ra2:.2f}")
 test=tourismmodel()
-#test.modeling(df)
-test.exporatory_data_analysis(df)
+test.modeling(df)
