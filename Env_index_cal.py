@@ -1,31 +1,18 @@
 import pandas as pd
 import numpy as np
 import math
-from sklearn.preprocessing import StandardScaler,MinMaxScaler #数据处理模块
 
-from critic import Critic,critic,topsis,entropy
+
+from critic import Critic,critic,topsis,entropy,standardlize,normalize
 np.set_printoptions(precision=4,suppress=True)
-#采用Z-score标准化
-def standardlize(X):
-    V=StandardScaler()
-    X=V.fit_transform(X)
-    return X
-#采用MinMax归一化
-def normalize(X):
-    V=MinMaxScaler()
-    if X.ndim==1:
-        X=(X-X.min(axis=0))/(X.max(axis=0)-X.min(axis=0))
 
-    else:
-        X=V.fit_transform(X)
-    return X
 
 
 Excelfile=pd.ExcelFile("三亚过夜游客统计新表.xlsx")
 
 df=pd.read_excel(Excelfile,skiprows=0,sheet_name="Sheet5",usecols="B:G")
 df.columns=["绿化覆盖率", "绿地率", "人均公共绿地面积", "森林覆盖率", "地表水达标率", "污水处理率"]
-X=pd.DataFrame(df).values
+X=df.values
 
 
 Xstandard=standardlize(X)

@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import math
+from sklearn.preprocessing import StandardScaler,MinMaxScaler #数据处理模块
 np.set_printoptions(precision=5,suppress=True)
 Excelfile=pd.ExcelFile("三亚过夜游客统计新表.xlsx")
 var={
@@ -108,7 +109,20 @@ def entropy(df,cost_columns,benefit_columns):
     return  weight
 
 
-               
+#采用Z-score标准化
+def standardlize(X):
+    V=StandardScaler()
+    X=V.fit_transform(X)
+    return X
+#采用MinMax归一化
+def normalize(X):
+    V=MinMaxScaler()
+    if X.ndim==1:
+        X=(X-X.min(axis=0))/(X.max(axis=0)-X.min(axis=0))
+
+    else:
+        X=V.fit_transform(X)
+    return X
 
 
                           
