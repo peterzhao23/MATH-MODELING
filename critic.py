@@ -3,30 +3,7 @@ import numpy as np
 import math
 from sklearn.preprocessing import StandardScaler,MinMaxScaler #数据处理模块
 np.set_printoptions(precision=5,suppress=True)
-Excelfile=pd.ExcelFile("三亚过夜游客统计新表.xlsx")
-var={
-    "Y":"年份",
-    "T1":"公路通车里程",
-    "T2":"码头泊位个数",
-    "T3":"客船",
-    "T4":"客位",
-    "T5":"铁路通车里程",
-    "T6":"民航主要航线"
 
-}
-df=pd.read_excel(Excelfile,skiprows=0,sheet_name="Sheet3",usecols="A:G")
-df.columns=["Y","T1","T2","T3","T4","T5","T6"]
-Y=df["Y"].to_list()
-T1=df["T1"].to_list()
-T2=df["T2"].to_list()
-T3=df["T3"].to_list()
-T4=df["T4"].to_list()
-T5=df["T5"].to_list()
-T6=df["T6"].to_list()
-
-df=pd.DataFrame({"T1":T1,"T2":T2,"T3":T3,"T4":T4,"T5":T5,"T6":T6})
-cost_columns=[]
-benefit_columns=["T1","T2","T3","T4","T5","T6"]
 #创建预处理函数
 class Critic:
      def preproc(df, cost_columns,benefit_columns):
@@ -46,29 +23,28 @@ class Critic:
 
 
      def conflict(X_standard):  #计算标准差（对比强度）
-         return np.std(X_standard,axis=0)
+         return np.std(X_standard,axis=0,ddof=1)
      
 
 
-     def relate(X_standard): #计算变量相关性与冲突性
+     def relate(df,X_standard): #计算变量相关性与冲突性
           m,n=X_standard.shape
-          copy=pd.DataFrame(X_standard,columns=df.columns[0:])
+          copy=pd.DataFrame(X_standard,columns=df.columns)
           cometrix=copy.corr()
           f=[0.0]*n
           co_values=cometrix.values
           for j in range(n):
                for i in range(n):
-                    f[j]=(1-((co_values[i,j])**2)**0.5)+f[j]
+                    f[j]=1-np.abs(co_values[i,j])+f[j]
                f[j]=float(f[j])
           return f
 
 def critic(df,cost_columns,benefit_columns):
      X_standard=Critic.preproc(df,cost_columns,benefit_columns) #得到归一化矩阵
-     n=X_standard.shape[1]
      R=Critic.conflict(X_standard) 
-     f=Critic.relate(X_standard)   #相关性
-     information_content=[R[i]*f[i] for i in range(n)]  #计算信息量
-     weight=np.array([information_content[i]/sum(information_content) for i in range(6)]) #计算权重
+     f=np.array(Critic.relate(df,X_standard))   #相关性
+     information_content=R*f  #计算信息量
+     weight=np.array([information_content[i]/sum(information_content) for i in range(len(df.columns))]) #计算权重
      return weight
 
 

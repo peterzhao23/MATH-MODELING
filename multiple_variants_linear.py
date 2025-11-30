@@ -34,9 +34,9 @@ class tourismmodel:
         plt.figure(figsize=(10, 8))
         sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', center=0,
                    square=True, fmt='.3f')
-        plt.title(f'{df.columns.tolist()}间相关性热力图')
+        plt.title(f'{df.columns.to_list()}间相关性热力图')
         plt.tight_layout()
-        plt.savefig(f'{df.columns.tolist()}间相关性热力图',bbox_inches="tight",dpi=128)
+        plt.savefig('热力图',bbox_inches="tight",dpi=128)
 
 
     def modeling(self,df):
