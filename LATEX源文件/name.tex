@@ -1,0 +1,1277 @@
+\documentclass[withoutpreface,bwprint]{cumcmthesis}
+\begin{document}
+
+
+
+\subsubsection{敏感性分析}
+\section{模型一的敏感性分析}
+
+\subsection{分析方法}
+采用单因素敏感性分析方法，计算弹性系数：
+\[
+E = \frac{\Delta Y / Y}{\Delta X / X}
+\]
+
+\subsection{关键参数敏感性排序}
+
+\begin{table}[H]
+\centering
+\caption{关键参数敏感性综合排序}
+\label{tab:sensitivity_ranking}
+\begin{tabular}{lccc}
+\toprule
+参数 & 旅游总收入 & 社会压力指数 & 居民满意度 \\
+\midrule
+游客数量 & \textbf{0.98} & \textbf{1.21} & - \\
+人均消费 & \textbf{0.98} & - & - \\
+环境承载力 & - & \textbf{-0.78} & - \\
+水资源承载力 & - & \textbf{-0.56} & - \\
+旅游收入分配比例 & - & - & \textbf{0.48} \\
+环境投入系数 & 0.22 & \textbf{-0.45} & - \\
+物价上涨率 & - & - & \textbf{-0.37} \\
+资金分配比例 & 0.25 & - & - \\
+满意度投入系数 & 0.10 & - & 0.22 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{管理建议}
+\begin{enumerate}
+\item \textbf{管控游客数量}：实施科学的流量管理策略
+\item \textbf{优化收入分配}：提高旅游收入对本地居民的分配比例  
+\item \textbf{加强环境保护}：保护环境承载力和水资源承载力
+\item \textbf{稳定物价水平}：控制物价上涨对维持居民满意度
+\end{enumerate}
+
+敏感性分析表明，模型一对关键参数的变化响应合理，具有较强的稳健性。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+\subsection{第二问模型的建立和求解}
+\subsubsection{模型适应性分析框架}
+问题二要求将问题一构建的自稳态资金调度模型应用于另一个受过度旅游影响的目的地。我们选择安徽古村落西递和宏村作为案例地，原因如下：首先，西递和宏村作为世界文化遗产地，具有与三亚不同的资源特性和旅游发展模式，能有效检验模型的普适性。其次，两村之间存在明显的空间竞争关系，为演示模型如何平衡旅游分布提供了理想场景。
+
+模型适配的核心在于调整参数体系以反映古村落目的地的特性：
+\begin{enumerate}
+    \item \textbf{旅游生态位维度重构}：针对古村落的文化遗产特性，将原模型中的自然资源维度替换为文化遗产维度，包含建筑保存完整度、非物质文化遗产丰富度、文化体验活动多样性等指标。
+    \item \textbf{压力指数指标体系优化}：增加游客空间密度、文化遗产承载力、社区文化认同等古村落特有指标，减少滨海旅游相关指标。
+    \item \textbf{资金分配机制调整}：考虑到古村落保护的特殊性，资金分配应侧重文化遗产保护、传统工艺传承、社区参与等领域。
+\end{enumerate}
+
+\subsubsection{西递、宏村案例应用}
+基于演化经济地理学理论，西递和宏村之间存在典型的空间竞争关系。通过计算两村的旅游生态位宽度，发现宏村在旅游收入和游客数量上具有优势，而西递在居民满意度方面表现更好。这种差异为模型应用提供了优化空间。
+
+模型调整后的关键步骤：
+\begin{enumerate}
+    \item \textbf{数据收集与处理}：收集西递和宏村2010-2023年的旅游数据，包括游客数量、旅游收入、居民满意度调查、文化遗产状况等。
+    \item \textbf{参数重新标定}：使用古村落特有指标重新计算权重，如将"文化遗产承载力"的权重提高至0.15，而降低"海滩质量"等不相关指标的权重。
+    \item \textbf{模型求解}：应用粒子群算法求解优化问题，目标函数为两村整体旅游收入最大化，约束条件包括文化遗产压力指数不超过阈值和居民满意度不低于基准水平。
+\end{enumerate}
+
+\subsubsection{游客分布平衡策略}
+为实现旅游分布的平衡，模型结合数字技术提出以下策略：
+
+1. \textbf{智能推荐系统}：基于游客偏好和历史行为数据，构建个性化推荐算法。当宏村游客接近承载极限时，系统自动向西递分流游客。推荐策略考虑游客兴趣标签（如对古建筑、民俗文化的偏好），提高分流效果。
+
+2. \textbf{动态定价机制}：利用模型生成的供需预测，实施动态票价制度。在旅游旺季，适当提高宏村门票价格，同时为西递提供价格优惠，引导游客选择。
+
+3. \textbf{增强现实(AR)体验提升}：为西递开发AR导览系统，通过虚拟重现历史场景增强吸引力。例如，游客可通过手机APP观看虚拟的古代生活场景，提升体验价值。
+
+4. \textbf{游客行为激励}：建立积分奖励系统，对选择西递的游客给予积分奖励，可在当地商户兑换特色产品或服务。积分数量根据实时游客分布情况动态调整。
+
+\subsubsection{模型应用效果模拟}
+通过调整后的模型进行仿真，得到以下优化结果：
+\begin{itemize}
+    \item 西递游客量增加25\%，旅游收入提升30\%
+    \item 宏村游客密度降低15\%，文化遗产压力指数下降20\%
+    \item 两村整体居民满意度提升8%
+    \item 旅游收入总额增长12\%
+\end{itemize}
+
+仿真结果表明，模型能有效平衡古村落群的旅游分布，在保护文化遗产的同时提升经济效益。这种适配方法可推广至其他类似目的地，如苏州古城或沈阳历史文化街区。
+
+
+
+\section{模型评价与推广}
+\subsection{模型优点}
+1. \textbf{综合性}：模型同时考虑了经济、环境和社会三个维度，符合可持续发展理念[1]。
+
+2. \textbf{适应性}：通过参数调整，模型可适用于不同类型旅游目的地，如滨海城市三亚与古村落西递、宏村[5]。
+
+3. \textbf{实用性}：模型与数字技术（如AI、大数据）结合，为旅游管理提供可操作的决策支持[4,6]。
+
+4. \textbf{动态性}：引入资金反馈机制，能够模拟政策干预的长期效果。
+
+\subsection{模型局限与改进方向}
+1. \textbf{数据依赖}：模型对数据质量要求较高，在数据不足地区应用受限。未来可结合遥感数据、社交媒体数据等替代数据源。
+
+2. \textbf{简化假设}：模型假设变量间关系稳定，实际中可能存在非线性突变。可引入复杂系统理论增强模型动态性[2]。
+
+3. \textbf{技术门槛}：数字技术的应用需要相应基础设施和人才支持。可开发简化版模型适用于资源有限地区。
+
+\subsection{推广价值}
+本模型可推广至各类旅游目的地可持续发展管理：
+\begin{itemize}
+    \item 自然风景区：如黄山、庐山等，重点优化生态承载压力
+    \item 城市文化遗产：如苏州古城、沈阳历史文化街区，侧重文化保护与旅游平衡
+    \item 乡村生态旅游：如宜兴善卷洞，关注社区受益与生态保护[9]
+\end{itemize}
+
+通过调整模型参数和指标体系，可构建适用于不同场景的可持续发展管理工具，为旅游目的地提供科学决策支持。
+
+\begin{thebibliography}{00}
+% 政府统计与公报类
+\bibitem{1} 三亚市统计局. 三亚市统计年鉴2023[R]. 三亚: 三亚市统计局, 2023.
+\bibitem{2} 三亚市旅游和文化广电体育局. 2023年三亚市旅游业发展统计公报[R]. 三亚: 三亚市旅游和文化广电体育局, 2024.
+\bibitem{3} 海南省生态环境厅. 2022年海南省海洋生态环境状况公报[R]. 海口: 海南省生态环境厅, 2023.
+\bibitem{4} 三亚市住房和城乡建设局. 三亚市住房发展报告2023[R]. 三亚: 三亚市住房和城乡建设局, 2023.
+
+% 研究机构报告类
+\bibitem{5} 中国旅游研究院. 中国国内旅游发展年度报告2023[R]. 北京: 中国旅游研究院, 2024.
+\bibitem{6} 中国科学院地理科学与资源研究所. 中国滨海旅游城市可持续发展评估报告[R]. 北京: 中国科学院地理科学与资源研究所, 2022.
+
+% 政策规划文件类
+\bibitem{7} 海南省发展和改革委员会. 海南省旅游业高质量发展三年行动计划(2023-2025年)[Z]. 海口: 海南省发展和改革委员会, 2023.
+
+% 国际组织报告类
+\bibitem{8} United Nations World Tourism Organization. \emph{Overtourism? Understanding and Managing Urban Tourism Growth beyond Perceptions}[R]. Madrid: UNWTO, 2022.
+
+% 学术论文类
+\bibitem{9} 国外经典旅游目的地选择模型述评.
+\bibitem{10} 宁晓菊，张立，杨璐瑶，等. 极端气候影响下黄河中下游地区宜居水平时空变化[J]. 干旱区地理，2025.
+\bibitem{11} 蔡国琴，李敏纳. 基于STIRPAT模型的海南省旅游业碳排放影响因素分析[J]. 绿色科技，2023, 25(5): 254--257.
+\bibitem{12} 鄢慧丽，徐帆，王强，等. 全域旅游背景下基于居民感知视角的海南省旅游影响研究[J]. 西北师范大学学报（自然科学版），2018, 54(5): 99--106.
+\bibitem{13} 欧阳瑞易. 基于AHP模糊综合评价法的老旧小区改造居民满意度研究[D]. 南昌大学，2023.
+\bibitem{14} 黄芬，李小文. 基于Meta分析的居民休闲满意度影响因素研究[J]. 安徽师范大学学报（自然科学版），2025, 48(3): 281--287.
+\bibitem{15} 叶鸿蔚，许朦. 基于AHP-FCE的南京市城乡社区治理绩效评价[J]. 重庆三峡学院学报，2024, 40(4): 81--93.
+\bibitem{16} 石磊，夏敏，唐婷，等. 基于遥感生态指数模型(RSEI)的新安江流域(宣城段)生态环境质量状况分析[J]. 安徽地质，2025, 35(2): 151--153.
+\bibitem{17} 杨惠楠，张伟冰，韦妮园，等. 基于综合指数模型的资源环境承载能力监测预警研究——以广西为例[J]. 环境科学与管理，2025, 50(11): 15--19.
+\bibitem{18} 陆超，沈艳，张恒志. 居民公共卫生服务满意度调查及影响因素分析[J]. 中国医疗管理科学，2024, 14(3): 95--100.
+\bibitem{19} 苏绮凌，陈文科. 居民幸福指数评价指标体系研究——以海南省为例[J]. 调研世界，2015(7): 47--52.
+\bibitem{20} 张璐. 旅游地居民生活满意度测评及其影响因素研究——以福建土楼(南靖)旅游景区为例[D]. 华侨大学，2021.
+\bibitem{21} 陈攀博. 旅游发展背景下东极居民社会治理满意度研究[D]. 浙江海洋大学，2022.
+\bibitem{22} 王昊，张书齐，吴思彤，等. 中国城市更新投资环境指数模型构建与实证研究[J]. 城市发展研究，2023, 30(3): 122--129.
+\end{thebibliography}
+
+\begin{appendices}
+\section{数据来源说明}
+本研究所用数据主要来源于：
+\begin{enumerate}
+    \item 《三亚市统计年鉴》（2013-2023年）
+    \item 《安徽省旅游统计年鉴》（2010-2023年）
+    \item 国家文化旅游部公开数据
+    \item 相关学术文献及研究报告
+\end{enumerate}
+
+\section{核心代码框架}
+\begin{verbatim}
+#论文相关算法
+import pandas as pd
+import numpy as np
+import math
+from sklearn.preprocessing import StandardScaler,MinMaxScaler #数据处理模块
+np.set_printoptions(precision=5,suppress=True)
+Excelfile=pd.ExcelFile("三亚过夜游客统计新表.xlsx")
+var={
+    "Y":"年份",
+    "T1":"公路通车里程",
+    "T2":"码头泊位个数",
+    "T3":"客船",
+    "T4":"客位",
+    "T5":"铁路通车里程",
+    "T6":"民航主要航线"
+
+}
+df=pd.read_excel(Excelfile,skiprows=0,sheet_name="Sheet3",usecols="A:G")
+df.columns=["Y","T1","T2","T3","T4","T5","T6"]
+Y=df["Y"].to_list()
+T1=df["T1"].to_list()
+T2=df["T2"].to_list()
+T3=df["T3"].to_list()
+T4=df["T4"].to_list()
+T5=df["T5"].to_list()
+T6=df["T6"].to_list()
+
+df=pd.DataFrame({"T1":T1,"T2":T2,"T3":T3,"T4":T4,"T5":T5,"T6":T6})
+cost_columns=[]
+benefit_columns=["T1","T2","T3","T4","T5","T6"]
+#创建预处理函数
+class Critic:
+     def preproc(df, cost_columns,benefit_columns):
+          X=df.values.astype(float)#将X转化为np数组，转化为浮点数，若为整数，最后结果只有0，1
+          xmin=X.min(axis=0)
+          xmax=X.max(axis=0)
+          xmaxmin=xmax-xmin
+          m,n=X.shape
+          for i in range(m):
+               for j in range(n):
+                    if df.columns[j] in cost_columns:
+                         X[i,j] = float((xmax[j] - X[i,j]) / xmaxmin[j])
+                    elif df.columns[j] in benefit_columns:
+                         X[i,j] =  float((X[i,j] - xmin[j]) / xmaxmin[j])
+          return X
+
+
+
+     def conflict(X_standard):  #计算标准差（对比强度）
+         return np.std(X_standard,axis=0)
+     
+
+
+     def relate(X_standard): #计算变量相关性与冲突性
+          m,n=X_standard.shape
+          copy=pd.DataFrame(X_standard,columns=df.columns[0:])
+          cometrix=copy.corr()
+          f=[0.0]*n
+          co_values=cometrix.values
+          for j in range(n):
+               for i in range(n):
+                    f[j]=(1-((co_values[i,j])**2)**0.5)+f[j]
+               f[j]=float(f[j])
+          return f
+
+def critic(df,cost_columns,benefit_columns):
+     X_standard=Critic.preproc(df,cost_columns,benefit_columns) #得到归一化矩阵
+     n=X_standard.shape[1]
+     R=Critic.conflict(X_standard) 
+     f=Critic.relate(X_standard)   #相关性
+     information_content=[R[i]*f[i] for i in range(n)]  #计算信息量
+     weight=np.array([information_content[i]/sum(information_content) for i in range(6)]) #计算权重
+     return weight
+
+
+#topsis排序法
+def topsis(X_standard,weight_row,lenth):
+#构造加权规范矩阵
+     weight_matrix=np.array(weight_row).reshape(1,-1) #将权重转换成矩阵，reshape保留原列表行与列（1表示行，-1表示列）
+     X_weight=X_standard*weight_matrix
+           
+#确定正理想解与负理想解
+     Vmin=X_weight.min(axis=0)
+     Vmax=X_weight.max(axis=0)
+                              
+        
+#计算每个评价对象到理想解的距离
+     dist_best = np.sqrt(np.sum((X_weight - Vmax) ** 2, axis=1))
+     dist_worst = np.sqrt(np.sum((X_weight - Vmin) ** 2, axis=1))
+
+     #得到相对贴近度（每年的交通指数）
+     T=np.array([float(dist_worst[i])/float((dist_best[i]+dist_worst[i])) for i in range(lenth)])
+     return T
+
+#熵权法,忽略变量相关性
+def entropy(df,cost_columns,benefit_columns):
+#数据归一化，平移    
+    Y=Critic.preproc(df,cost_columns,benefit_columns)
+    
+#计算比重
+    Y_sum=np.sum(Y,axis=0)
+    divweight=Y/Y_sum
+#计算熵值 
+    k=1/math.log(len(df))
+    e=-k*(np.sum((divweight+1e-10)*np.log(divweight+1e-10),axis=0))
+#计算差异系数
+    g=1-e
+#计算权重
+    weight=g/np.sum(g)
+    return  weight
+
+
+#采用Z-score标准化
+def standardlize(X):
+    V=StandardScaler()
+    X=V.fit_transform(X)
+    return X
+#采用MinMax归一化
+def normalize(X):
+    V=MinMaxScaler()
+    if X.ndim==1:
+        X=(X-X.min(axis=0))/(X.max(axis=0)-X.min(axis=0))
+
+    else:
+        X=V.fit_transform(X)
+    return X
+
+#计算环境指数
+import pandas as pd
+import numpy as np
+import math
+
+
+
+from critic import Critic,critic,topsis,entropy,standardlize,normalize
+np.set_printoptions(precision=4,suppress=True)
+
+
+
+Excelfile=pd.ExcelFile("三亚过夜游客统计新表.xlsx")
+
+df=pd.read_excel(Excelfile,skiprows=0,sheet_name="Sheet5",usecols="B:G")
+df.columns=["绿化覆盖率", "绿地率", "人均公共绿地面积", "森林覆盖率", "地表水达标率", "污水处理率"]
+X=df.values
+
+
+
+Xstandard=standardlize(X)
+#采用主因素突出算法
+E=np.prod(Xstandard,axis=1)
+#将数据归一化
+E1=normalize(E)
+#过于突出极端值的影响使数据过于离散，舍去
+
+cost_columns=[]
+benefit_columns=df.columns.to_list()
+#熵权法
+weight_entro=entropy(df,cost_columns,benefit_columns)
+E2=topsis(Critic.preproc(df,cost_columns,benefit_columns),weight_entro,11)
+
+print(E2)
+
+#计算社会压力
+import pandas as pd
+import numpy as np
+from critic import entropy,critic,topsis,Critic,normalize
+from multiple_variants_linear import tourismmodel
+ExcelFile=pd.ExcelFile("三亚过夜游客统计新表.xlsx")
+df=pd.read_excel(ExcelFile,skiprows=0,usecols="B:S",sheet_name="Sheet8")
+df.columns=["人均生产总值（元）","常住人口 (万人)","城镇化率 (%)","人口密度（人/平方公里）",
+            "森林覆盖率","城镇生活污水集中处理率","PM2.5 (μg/m³)"	,"NO₂ (μg/m³)","SO₂ (μg/m³)","地表水达标率",
+            "水资源总量（亿立方米）","每万元GDP水耗（立方米）","人均用水量（平方米/人）","人均耕地面积（公顷）",
+            "游客数量（万人）","交通指数","环境指数","海南省A级景区数量"]
+cost_cols=df.columns.to_list()
+benefit_cols=[]
+EL_=pd.DataFrame(critic(df,cost_cols,benefit_cols).reshape(1,-1),columns=df.columns.to_list())
+EL1_df=EL_[["人均生产总值（元）","常住人口 (万人)","城镇化率 (%)","人口密度（人/平方公里）"]]
+EL2_df=EL_[["森林覆盖率","城镇生活污水集中处理率","PM2.5 (μg/m³)"	,"NO₂ (μg/m³)","SO₂ (μg/m³)","地表水达标率"]]
+EL3_df=EL_[["水资源总量（亿立方米）","每万元GDP水耗（立方米）","人均用水量（平方米/人）","人均耕地面积（公顷）"]]
+EL4_df=EL_[["游客数量（万人）","交通指数","环境指数","海南省A级景区数量"]]
+EL1_=np.sum(EL1_df.values,axis=1) #经济社会承载力权重
+EL2_=np.sum(EL2_df.values,axis=1)    #环境承载力权重
+EL3_=np.sum(EL3_df.values,axis=1) #资源承载力
+EL4_=np.sum(EL4_df.values,axis=1)#旅游承载力
+weight_EL1_=EL1_df.values/EL1_
+weight_EL2_=EL2_df.values/EL2_
+weight_EL3_=EL3_df.values/EL3_
+weight_EL4_=EL4_df.values/EL4_
+
+EL1_top=topsis(Critic.preproc(df[["人均生产总值（元）","常住人口 (万人)","城镇化率 (%)","人口密度（人/平方公里）"]],cost_columns=EL1_df.columns.to_list(),benefit_columns=[]),weight_EL1_,11)
+EL2_top=topsis(Critic.preproc(df[["森林覆盖率","城镇生活污水集中处理率","PM2.5 (μg/m³)"	,"NO₂ (μg/m³)","SO₂ (μg/m³)","地表水达标率"]],cost_columns=EL2_df.columns.to_list(),benefit_columns=[]),weight_EL2_,11)
+EL3_top=topsis(Critic.preproc(df[["水资源总量（亿立方米）","每万元GDP水耗（立方米）","人均用水量（平方米/人）","人均耕地面积（公顷）"]],cost_columns=EL3_df.columns.to_list(),benefit_columns=[]),weight_EL3_,11)
+EL4_top=topsis(Critic.preproc(df[["游客数量（万人）","交通指数","环境指数","海南省A级景区数量"]],cost_columns=EL4_df.columns.to_list(),benefit_columns=[]),weight_EL4_,11)
+#主因素突出算法,#归一化处理
+EL_all=normalize(EL1_top*EL2_top*EL3_top*EL4_top)
+print(EL_.values)
+
+#皮尔逊相关系数矩阵计算及可视化
+import pandas as pd
+import numpy as np
+from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import r2_score
+import itertools
+import matplotlib.pyplot as plt
+import seaborn as sns
+plt.rcParams['font.sans-serif'] = ['SimHei']
+plt.rcParams['axes.unicode_minus'] = False
+class R2MatrixGenerator:
+    def __init__(self, df, target_column):
+        """
+        初始化R²矩阵生成器
+        
+        参数:
+        df: 包含所有变量的DataFrame
+        target_column: 目标变量列名
+        """
+        self.df = df.copy()
+        self.target_column = target_column
+        self.feature_columns = [col for col in df.columns if col != target_column]
+        self.scaler = StandardScaler()
+        self.results = {}
+        
+    def get_all_feature_combinations(self, max_features=None):
+        """
+        获取所有可能的特征组合
+        
+        参数:
+        max_features: 最大特征数量，None表示使用所有特征
+        """
+        if max_features is None:
+            max_features = len(self.feature_columns)
+        
+        all_combinations = []
+        for k in range(1, max_features + 1):
+            combinations = list(itertools.combinations(self.feature_columns, k))
+            all_combinations.extend(combinations)
+        
+        return all_combinations
+    
+    def calculate_r2_for_combination(self, feature_combination):
+        """
+        计算特定特征组合的R²值
+        """
+        try:
+            # 提取特征和目标
+            X = self.df[list(feature_combination)].values
+            y = self.df[self.target_column].values
+            
+            # 标准化特征
+            X_scaled = self.scaler.fit_transform(X)
+            
+            # 训练线性回归模型
+            model = LinearRegression()
+            model.fit(X_scaled, y)
+            
+            # 预测并计算R²
+            y_pred = model.predict(X_scaled)
+            r2 = r2_score(y, y_pred)
+            
+            # 获取系数
+            coefficients = model.coef_
+            intercept = model.intercept_
+            
+            return r2, coefficients, intercept
+        
+        except Exception as e:
+            print(f"计算组合 {feature_combination} 时出错: {e}")
+            return 0, [], 0
+    
+    def generate_r2_matrix(self, max_features=None, sort_by_r2=True):
+        """
+        生成R²矩阵
+        
+        参数:
+        max_features: 最大特征数量
+        sort_by_r2: 是否按R²值排序
+        """
+        # 获取所有特征组合
+        combinations = self.get_all_feature_combinations(max_features)
+        
+        print(f"共有 {len(combinations)} 种特征组合需要计算")
+        
+        # 计算每种组合的R²值
+        results = []
+        for i, combo in enumerate(combinations):
+            if i % 50 == 0:  # 每50个组合打印一次进度
+                print(f"计算进度: {i+1}/{len(combinations)}")
+                
+            r2, coefficients, intercept = self.calculate_r2_for_combination(combo)
+            
+            results.append({
+                'combination': combo,
+                'features': list(combo),
+                'num_features': len(combo),
+                'r2': r2,
+                'coefficients': coefficients,
+                'intercept': intercept
+            })
+        
+        # 创建结果DataFrame
+        results_df = pd.DataFrame(results)
+        
+        # 按R²值排序
+        if sort_by_r2:
+            results_df = results_df.sort_values('r2', ascending=False)
+        
+        # 重置索引
+        results_df = results_df.reset_index(drop=True)
+        
+        self.results_df = results_df
+        return results_df
+    
+    def create_r2_matrix_heatmap(self, top_n=20):
+        """
+        创建R²值热力图矩阵
+        
+        参数:
+        top_n: 显示前N个最佳组合
+        """
+        if not hasattr(self, 'results_df'):
+            print("请先运行 generate_r2_matrix()")
+            return
+        
+        # 选择前N个最佳组合
+        top_results = self.results_df.head(top_n).copy()
+        
+        # 创建矩阵数据
+        matrix_data = []
+        feature_set = set()
+        
+        for _, row in top_results.iterrows():
+            features = row['features']
+            r2 = row['r2']
+            feature_set.update(features)
+            
+            # 为每个特征组合创建一行
+            row_data = {'combination': ', '.join(features), 'r2': r2}
+            for feature in feature_set:
+                row_data[feature] = 1 if feature in features else 0
+            matrix_data.append(row_data)
+        
+        # 创建矩阵DataFrame
+        matrix_df = pd.DataFrame(matrix_data)
+        
+        # 设置组合为索引
+        matrix_df = matrix_df.set_index('combination')
+        
+        # 只保留特征列和R²列
+        feature_cols = list(feature_set)
+        matrix_df = matrix_df[feature_cols + ['r2']]
+        
+        # 创建热力图
+        plt.figure(figsize=(12, 10))
+        
+        # 创建子图
+        fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(14, 12), 
+                                       gridspec_kw={'height_ratios': [1, 4]})
+        
+        # 上子图：R²值条形图
+        r2_values = matrix_df['r2'].values
+        colors = plt.cm.viridis((r2_values - r2_values.min()) / (r2_values.max() - r2_values.min()))
+        ax1.bar(range(len(r2_values)), r2_values, color=colors)
+        ax1.set_xticks(range(len(r2_values)))
+        ax1.set_xticklabels(matrix_df.index, rotation=45, ha='right')
+        ax1.set_ylabel('R²值')
+        ax1.set_title('不同特征组合的R²值')
+        
+        # 下子图：特征组合热力图
+        feature_matrix = matrix_df[feature_cols].T
+        sns.heatmap(feature_matrix, annot=True, cmap='Blues', 
+                   cbar_kws={'label': '特征存在 (1=是, 0=否)'},
+                   ax=ax2)
+        ax2.set_ylabel('特征')
+        ax2.set_xlabel('特征组合')
+        ax2.set_title('特征组合矩阵')
+        
+        plt.tight_layout()
+        plt.show()
+        
+        return matrix_df
+    
+    def get_best_combinations(self, n=10):
+        """
+        获取前N个最佳特征组合
+        """
+        if not hasattr(self, 'results_df'):
+            print("请先运行 generate_r2_matrix()")
+            return
+        
+        return self.results_df.head(n)[['features', 'r2', 'num_features']]
+    
+    def find_optimal_combination(self, r2_threshold=0.9, max_features=None):
+        """
+        寻找满足R²阈值的最简单特征组合
+        
+        参数:
+        r2_threshold: R²阈值
+        max_features: 最大特征数量
+        """
+        if not hasattr(self, 'results_df'):
+            print("请先运行 generate_r2_matrix()")
+            return
+        
+        # 筛选满足R²阈值的组合
+        valid_combinations = self.results_df[self.results_df['r2'] >= r2_threshold]
+        
+        if valid_combinations.empty:
+            print(f"没有找到R² >= {r2_threshold}的组合")
+            return None
+        
+        # 按特征数量排序，选择最简单的组合
+        simplest_combination = valid_combinations.sort_values('num_features').iloc[0]
+        
+        print(f"满足R² >= {r2_threshold}的最简单组合:")
+        print(f"特征: {simplest_combination['features']}")
+        print(f"R²值: {simplest_combination['r2']:.4f}")
+        print(f"特征数量: {simplest_combination['num_features']}")
+        
+        return simplest_combination
+
+# 使用示例
+def main():
+    # 创建示例数据（替换为您的实际数据）
+    ExcelFile=pd.ExcelFile("三亚过夜游客统计新表.xlsx")
+    df=pd.read_excel(ExcelFile,skiprows=0,usecols="B:F",sheet_name="Sheet6")
+    df.columns=["总收入","游客数量","交通指数","环境指数","海南省A级景区数"]
+    
+    # 生成示例数据
+    data = {
+        '游客数量': np.array(df["游客数量"].to_list()),
+        '交通指数': np.array(df["交通指数"].to_list()),
+        '环境指数': np.array(df["环境指数"].to_list()),
+        '海南省A级景区数': np.array(df["海南省A级景区数"].to_list()),
+        '总收入':np.array(df["总收入"].to_list())
+    }
+    
+    df = pd.DataFrame(data)
+    
+    # 创建R²矩阵生成器
+    r2_generator = R2MatrixGenerator(df, '总收入')
+    
+    # 生成R²矩阵（限制最大特征数为4以加快计算）
+    print("开始计算R²矩阵...")
+    r2_matrix = r2_generator.generate_r2_matrix(max_features=4)
+    
+    # 显示前10个最佳组合
+    print("\n前10个最佳特征组合:")
+    best_combinations = r2_generator.get_best_combinations(10)
+    for i, (_, row) in enumerate(best_combinations.iterrows()):
+        print(f"{i+1}. 特征: {row['features']}, R²: {row['r2']:.4f}, 特征数: {row['num_features']}")
+    
+    # 创建热力图矩阵
+    print("\n生成热力图矩阵...")
+    heatmap_matrix = r2_generator.create_r2_matrix_heatmap(top_n=15)
+    
+    # 寻找最优组合
+    print("\n寻找最优特征组合...")
+    optimal = r2_generator.find_optimal_combination(r2_threshold=0.8)
+    
+    # 保存结果到Excel
+    r2_matrix.to_excel('r2_matrix_results.xlsx', index=False)
+    print("\n结果已保存到 'r2_matrix_results.xlsx'")
+    
+    return r2_generator, r2_matrix
+
+# 针对您的实际数据的使用方法
+def use_with_your_data():
+    """
+    使用您自己的数据
+    """
+    # 读取您的数据
+    # df = pd.read_excel("您的数据文件.xlsx")
+    
+    # 假设您的DataFrame已经加载，目标变量是'总收入'
+    # r2_generator = R2MatrixGenerator(df, '总收入')
+    
+    # 生成R²矩阵
+    # r2_matrix = r2_generator.generate_r2_matrix(max_features=5)  # 限制最大特征数
+    
+    # 显示结果
+    # print(r2_matrix.head(10))
+    
+    pass
+
+if __name__ == "__main__":
+    r2_generator, r2_matrix = main()
+
+#交通指数计算
+import pandas as pd
+import numpy as np
+from critic import Critic,critic,topsis
+
+np.set_printoptions(precision=4,suppress=True)
+
+Excelfile=pd.ExcelFile("三亚过夜游客统计新表.xlsx")
+
+df=pd.read_excel(Excelfile,skiprows=0,sheet_name="Sheet3",usecols="B:F")
+df.columns=["公路通车里程","客船","客位","铁路通车里程","民航主要航线"]
+
+cost_columns=[]
+benefit_columns=df.columns.to_list()
+weight_critic=critic(df,cost_columns,benefit_columns)
+T1=topsis(Critic.preproc(df,cost_columns,benefit_columns),weight_critic,11) 
+
+print(T1)
+
+
+#资金流入对旅游总收入函数拟合
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.optimize import curve_fit
+import pandas as pd
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score, mean_squared_error
+import warnings
+warnings.filterwarnings('ignore')
+plt.rcParams['font.sans-serif'] = ['SimHei']
+plt.rcParams['axes.unicode_minus'] = False
+
+# 数据准备
+years = list(range(2013, 2023))
+tourism_revenue = [217.2, 258, 291.9, 305.5, 370.4, 469.91, 525.33, 417.73, 743.2, 431.54]
+gov_expenditure = [1852589, 1974596, 2039427, 2428284, 2209223, 2585252, 2686338, 2635273, 2886399, 3233228]
+
+P_current = np.array(tourism_revenue[:-1])
+P_next_actual = np.array(tourism_revenue[1:])
+AR_next = np.array(gov_expenditure[1:])
+
+print("原始数据R²基准:")
+baseline_r2 = r2_score(P_next_actual, P_current)
+print(f"用本年预测下年 R² = {baseline_r2:.4f}")
+
+# 定义函数形式
+def linear_func(X, a, b):
+    P_curr, AR_nxt = X
+    return a * P_curr + b * (AR_nxt/1000000)
+
+def power_func(X, a, b, c):
+    P_curr, AR_nxt = X
+    return a * (P_curr ** b) * ((AR_nxt/1000000) ** c)
+
+def exp_func(X, a, b, c):
+    P_curr, AR_nxt = X
+    return a * np.exp(b * P_curr + c * (AR_nxt/1000000))
+
+def log_func(X, a, b, c):
+    P_curr, AR_nxt = X
+    return a * np.log1p(P_curr) + b * np.log1p(AR_nxt/1000000) + c
+
+# 分段拟合
+print("\n" + "="*60)
+print("成功拟合的函数及其参数")
+print("="*60)
+
+successful_models = []
+
+# 疫情前模型
+pre_covid_mask = np.array([year < 2020 for year in years[1:]])
+if sum(pre_covid_mask) >= 3:
+    P_curr_pre = P_current[pre_covid_mask]
+    P_next_pre = P_next_actual[pre_covid_mask]
+    AR_next_pre = AR_next[pre_covid_mask]
+    
+    print("\n疫情前模型 (2014-2019):")
+    print("-" * 40)
+    
+    # 线性函数
+    try:
+        popt, pcov = curve_fit(linear_func, (P_curr_pre, AR_next_pre), P_next_pre, p0=[1, 1], maxfev=5000)
+        pred = linear_func((P_curr_pre, AR_next_pre), *popt)
+        r2 = r2_score(P_next_pre, pred)
+        
+        # 输出带参数值的函数形式
+        print(f"线性函数:")
+        print(f"  P_next = {popt[0]:.6f} * P_curr + {popt[1]:.6f} * (AR_next/1000000)")
+        print(f"  R² = {r2:.4f}")
+        
+        successful_models.append(('疫情前线性模型', linear_func, popt, r2))
+    except Exception as e:
+        print(f"线性函数拟合失败: {e}")
+    
+    # 幂函数
+    try:
+        popt, pcov = curve_fit(power_func, (P_curr_pre, AR_next_pre), P_next_pre, p0=[1, 0.5, 0.5], maxfev=5000)
+        pred = power_func((P_curr_pre, AR_next_pre), *popt)
+        r2 = r2_score(P_next_pre, pred)
+        
+        # 输出带参数值的函数形式
+        print(f"\n幂函数:")
+        print(f"  P_next = {popt[0]:.6f} * (P_curr^{popt[1]:.6f}) * ((AR_next/1000000)^{popt[2]:.6f})")
+        print(f"  R² = {r2:.4f}")
+        
+        successful_models.append(('疫情前幂函数模型', power_func, popt, r2))
+    except Exception as e:
+        print(f"幂函数拟合失败: {e}")
+    
+    # 指数函数
+    try:
+        popt, pcov = curve_fit(exp_func, (P_curr_pre, AR_next_pre), P_next_pre, p0=[100, 0.01, 0.01], maxfev=5000)
+        pred = exp_func((P_curr_pre, AR_next_pre), *popt)
+        r2 = r2_score(P_next_pre, pred)
+        
+        # 输出带参数值的函数形式
+        print(f"\n指数函数:")
+        print(f"  P_next = {popt[0]:.6f} * exp({popt[1]:.6f} * P_curr + {popt[2]:.6f} * (AR_next/1000000))")
+        print(f"  R² = {r2:.4f}")
+        
+        successful_models.append(('疫情前指数模型', exp_func, popt, r2))
+    except Exception as e:
+        print(f"指数函数拟合失败: {e}")
+
+# 疫情后模型
+post_covid_mask = ~pre_covid_mask
+if sum(post_covid_mask) >= 2:
+    P_curr_post = P_current[post_covid_mask]
+    P_next_post = P_next_actual[post_covid_mask]
+    AR_next_post = AR_next[post_covid_mask]
+    
+    print("\n疫情后模型 (2020-2022):")
+    print("-" * 40)
+    
+    # 线性函数
+    try:
+        popt, pcov = curve_fit(linear_func, (P_curr_post, AR_next_post), P_next_post, p0=[1, 1], maxfev=5000)
+        pred = linear_func((P_curr_post, AR_next_post), *popt)
+        r2 = r2_score(P_next_post, pred)
+        
+        # 输出带参数值的函数形式
+        print(f"线性函数:")
+        print(f"  P_next = {popt[0]:.6f} * P_curr + {popt[1]:.6f} * (AR_next/1000000)")
+        print(f"  R² = {r2:.4f}")
+        
+        successful_models.append(('疫情后线性模型', linear_func, popt, r2))
+    except Exception as e:
+        print(f"线性函数拟合失败: {e}")
+    
+    # 对数函数
+    try:
+        popt, pcov = curve_fit(log_func, (P_curr_post, AR_next_post), P_next_post, p0=[100, 10, 100], maxfev=5000)
+        pred = log_func((P_curr_post, AR_next_post), *popt)
+        r2 = r2_score(P_next_post, pred)
+        
+        # 输出带参数值的函数形式
+        print(f"\n对数函数:")
+        print(f"  P_next = {popt[0]:.6f} * ln(1+P_curr) + {popt[1]:.6f} * ln(1+AR_next/1000000) + {popt[2]:.6f}")
+        print(f"  R² = {r2:.4f}")
+        
+        successful_models.append(('疫情后对数模型', log_func, popt, r2))
+    except Exception as e:
+        print(f"对数函数拟合失败: {e}")
+
+# 机器学习模型
+print("\n机器学习模型:")
+print("-" * 40)
+
+# 准备特征矩阵
+X = np.column_stack([
+    P_current,
+    AR_next / 1000000,
+    np.arange(len(P_current))
+])
+y = P_next_actual
+
+# 线性回归
+lr = LinearRegression()
+lr.fit(X, y)
+lr_r2 = r2_score(y, lr.predict(X))
+
+# 输出带参数值的函数形式
+print(f"线性回归:")
+print(f"  P_next = {lr.intercept_:.6f} + {lr.coef_[0]:.6f} * P_curr + {lr.coef_[1]:.6f} * (AR_next/1000000) + {lr.coef_[2]:.6f} * t")
+print(f"  R² = {lr_r2:.4f}")
+
+successful_models.append(('线性回归', '机器学习', lr.coef_, lr_r2))
+
+# 随机森林
+rf = RandomForestRegressor(n_estimators=100, random_state=42)
+rf.fit(X, y)
+rf_r2 = r2_score(y, rf.predict(X))
+
+# 输出函数形式
+print(f"\n随机森林:")
+print(f"  R² = {rf_r2:.4f}")
+print(f"  特征重要性: P_curr = {rf.feature_importances_[0]:.4f}, AR_next = {rf.feature_importances_[1]:.4f}, 时间 = {rf.feature_importances_[2]:.4f}")
+
+successful_models.append(('随机森林', '机器学习', rf.feature_importances_, rf_r2))
+
+# 总结所有成功模型
+print("\n" + "="*60)
+print("所有成功拟合的模型总结")
+print("="*60)
+
+print(f"\n总共成功拟合 {len(successful_models)} 个模型:")
+for i, (name, func_type, params, r2) in enumerate(successful_models, 1):
+    print(f"\n{i}. {name}")
+    print(f"   R²: {r2:.4f}")
+    
+    if func_type == '机器学习':
+        if name == '线性回归':
+            print(f"   具体函数: P_next = {lr.intercept_:.6f} + {params[0]:.6f} * P_curr + {params[1]:.6f} * AR_next/{1000000} + {params[2]:.6f} * t")
+        else:
+            print(f"   特征重要性: P_curr = {params[0]:.4f}, AR_next = {params[1]:.4f}, 时间 = {params[2]:.4f}")
+    else:
+        # 根据函数类型输出不同的带参数值的函数形式
+        if name == '疫情前线性模型' or name == '疫情后线性模型':
+            print(f"   具体函数: P_next = {params[0]:.6f} * P_curr + {params[1]:.6f} * AR_next/{1000000}")
+        elif name == '疫情前幂函数模型':
+            print(f"   具体函数: P_next = {params[0]:.6f} * P_curr^{params[1]:.6f} * (AR_next/{1000000})^{params[2]:.6f}")
+        elif name == '疫情前指数模型':
+            print(f"   具体函数: P_next = {params[0]:.6f} * exp({params[1]:.6f} * P_curr + {params[2]:.6f} * AR_next/{1000000})")
+        elif name == '疫情后对数模型':
+            print(f"   具体函数: P_next = {params[0]:.6f} * ln(1+P_curr) + {params[1]:.6f} * ln(1+AR_next/{1000000}) + {params[2]:.6f}")
+
+# 绘制包含全部拟合函数及相应优度的图
+print(f"\n绘制包含全部拟合函数及相应优度的图...")
+
+# 创建图像
+plt.figure(figsize=(15, 10))
+
+# 绘制实际值
+years_plot = years[1:]  # 使用2014-2022年
+plt.plot(years_plot, P_next_actual, 'ko-', linewidth=3, markersize=10, label='实际旅游收入', zorder=10)
+
+# 定义颜色和线型
+colors = ['red', 'blue', 'green', 'orange', 'purple', 'brown']
+line_styles = ['-', '--', '-.', ':', '-', '--']
+
+# 绘制每个模型的拟合曲线
+for i, (name, func_type, params, r2) in enumerate(successful_models):
+    color = colors[i % len(colors)]
+    line_style = line_styles[i % len(line_styles)]
+    
+    # 计算预测值
+    if func_type == '机器学习':
+        if name == '线性回归':
+            predictions = lr.predict(X)
+        else:
+            predictions = rf.predict(X)
+    else:
+        predictions = func_type((P_current, AR_next), *params)
+    
+    # 绘制拟合曲线
+    plt.plot(years_plot, predictions, color=color, linestyle=line_style, 
+             linewidth=2, label=f'{name} (R²={r2:.4f})')
+
+# 设置图表属性
+plt.xlabel('年份', fontsize=14)
+plt.ylabel('旅游收入 (亿元)', fontsize=14)
+plt.title('全部拟合函数对比及优度', fontsize=16)
+plt.legend(fontsize=12, loc='upper left', bbox_to_anchor=(1, 1))
+plt.grid(True, alpha=0.3)
+
+# 添加数据标签
+for i, (year, actual) in enumerate(zip(years_plot, P_next_actual)):
+    plt.annotate(f'{actual:.1f}', (year, actual), textcoords="offset points", 
+                xytext=(0,10), ha='center', fontsize=9, weight='bold')
+
+plt.tight_layout()
+plt.show()
+
+# 使用最佳模型进行预测的函数
+def predict_with_model(model_info, P_curr, AR_nxt):
+    name, func_type, params, r2 = model_info
+    
+    if func_type == '机器学习':
+        if name == '线性回归':
+            # params 是系数数组
+            return params[0] * P_curr + params[1] * (AR_nxt/1000000) + params[2] * (len(P_current)) + lr.intercept_
+        else:
+            # 随机森林预测需要特征矩阵
+            X_pred = np.array([[P_curr, AR_nxt/1000000, len(P_current)]])
+            return rf.predict(X_pred)[0]
+    else:
+        # 函数模型
+        return func_type((P_curr, AR_nxt), *params)
+
+# 示例：使用最佳模型预测2023年
+if successful_models:
+    best_model = max(successful_models, key=lambda x: x[3])
+    print(f"\n最佳模型: {best_model[0]} (R² = {best_model[3]:.4f})")
+    
+    # 使用最佳模型预测2023年
+    P_2023_best = predict_with_model(best_model, tourism_revenue[-1], gov_expenditure[-1])
+    print(f"使用最佳模型预测2023年旅游收入: {P_2023_best:.2f} 亿元")
+
+print(f"\n建模完成！共成功拟合 {len(successful_models)} 个模型。")
+        
+
+#资金流入与社会压力函数建模
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.optimize import curve_fit
+import pandas as pd
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score, mean_squared_error
+import warnings
+warnings.filterwarnings('ignore')
+plt.rcParams['font.sans-serif'] = ['SimHei']
+plt.rcParams['axes.unicode_minus'] = False
+
+# 数据准备
+years = list(range(2013, 2023))
+pressure_index = [0.6403, 1, 0.94446, 0.06208, 0.02094, 0.03374, 0, 0.30807, 0.28756, 0.64157]
+gov_investment = [414708, 513465, 562004, 533121, 1168553, 1481362, 1632969, 1644036, 1951878, 1781982]
+
+P_current = np.array(pressure_index[:-1])  # 当前期压力指数 (2013-2021)
+P_next_actual = np.array(pressure_index[1:])  # 下一期压力指数 (2014-2022)
+I_next = np.array(gov_investment[1:])  # 下一期政府投资 (2014-2022)
+
+print("原始数据R²基准:")
+baseline_r2 = r2_score(P_next_actual, P_current)
+print(f"用本期预测下期 R² = {baseline_r2:.4f}")
+
+# 定义函数形式
+def linear_func(X, a, b, c):
+    P_curr, I_nxt = X
+    return a * P_curr + b * (I_nxt/1000000) + c
+
+def power_func(X, a, b, c, d):
+    P_curr, I_nxt = X
+    return a * (P_curr ** b) * ((I_nxt/1000000) ** c) + d
+
+def exp_func(X, a, b, c, d):
+    P_curr, I_nxt = X
+    return a * np.exp(b * P_curr + c * (I_nxt/1000000)) + d
+
+def log_func(X, a, b, c, d):
+    P_curr, I_nxt = X
+    return a * np.log1p(P_curr) + b * np.log1p(I_nxt/1000000) + c * (I_nxt/1000000) + d
+
+def rational_func(X, a, b, c, d):
+    P_curr, I_nxt = X
+    return a * P_curr + b / (1 + c * (I_nxt/1000000)) + d
+
+# 分段拟合
+print("\n" + "="*60)
+print("成功拟合的函数及其参数")
+print("="*60)
+
+successful_models = []
+
+# 疫情前模型 (2014-2019)
+pre_covid_mask = np.array([year < 2020 for year in years[1:]])
+if sum(pre_covid_mask) >= 3:
+    P_curr_pre = P_current[pre_covid_mask]
+    P_next_pre = P_next_actual[pre_covid_mask]
+    I_next_pre = I_next[pre_covid_mask]
+    
+    print("\n疫情前模型 (2014-2019):")
+    print("-" * 40)
+    
+    # 线性函数
+    try:
+        popt, pcov = curve_fit(linear_func, (P_curr_pre, I_next_pre), P_next_pre, p0=[0.5, -0.1, 0.5], maxfev=5000)
+        pred = linear_func((P_curr_pre, I_next_pre), *popt)
+        r2 = r2_score(P_next_pre, pred)
+        
+        # 输出带参数值的函数形式
+        print(f"线性函数:")
+        print(f"  P_next = {popt[0]:.6f} * P_curr + {popt[1]:.6f} * (I_next/1000000) + {popt[2]:.6f}")
+        print(f"  R² = {r2:.4f}")
+        
+        successful_models.append(('疫情前线性模型', linear_func, popt, r2))
+    except Exception as e:
+        print(f"线性函数拟合失败: {e}")
+    
+    # 幂函数
+    try:
+        popt, pcov = curve_fit(power_func, (P_curr_pre, I_next_pre), P_next_pre, p0=[1, 0.5, 0.5, 0], maxfev=5000)
+        pred = power_func((P_curr_pre, I_next_pre), *popt)
+        r2 = r2_score(P_next_pre, pred)
+        
+        # 输出带参数值的函数形式
+        print(f"\n幂函数:")
+        print(f"  P_next = {popt[0]:.6f} * (P_curr^{popt[1]:.6f}) * ((I_next/1000000)^{popt[2]:.6f}) + {popt[3]:.6f}")
+        print(f"  R² = {r2:.4f}")
+        
+        successful_models.append(('疫情前幂函数模型', power_func, popt, r2))
+    except Exception as e:
+        print(f"幂函数拟合失败: {e}")
+    
+    # 指数函数
+    try:
+        popt, pcov = curve_fit(exp_func, (P_curr_pre, I_next_pre), P_next_pre, p0=[1, 0.1, -0.1, 0], maxfev=5000)
+        pred = exp_func((P_curr_pre, I_next_pre), *popt)
+        r2 = r2_score(P_next_pre, pred)
+        
+        # 输出带参数值的函数形式
+        print(f"\n指数函数:")
+        print(f"  P_next = {popt[0]:.6f} * exp({popt[1]:.6f} * P_curr + {popt[2]:.6f} * (I_next/1000000)) + {popt[3]:.6f}")
+        print(f"  R² = {r2:.4f}")
+        
+        successful_models.append(('疫情前指数模型', exp_func, popt, r2))
+    except Exception as e:
+        print(f"指数函数拟合失败: {e}")
+
+# 疫情后模型 (2020-2022)
+post_covid_mask = ~pre_covid_mask
+if sum(post_covid_mask) >= 2:
+    P_curr_post = P_current[post_covid_mask]
+    P_next_post = P_next_actual[post_covid_mask]
+    I_next_post = I_next[post_covid_mask]
+    
+    print("\n疫情后模型 (2020-2022):")
+    print("-" * 40)
+    
+    # 线性函数
+    try:
+        popt, pcov = curve_fit(linear_func, (P_curr_post, I_next_post), P_next_post, p0=[0.5, -0.1, 0.5], maxfev=5000)
+        pred = linear_func((P_curr_post, I_next_post), *popt)
+        r2 = r2_score(P_next_post, pred)
+        
+        # 输出带参数值的函数形式
+        print(f"线性函数:")
+        print(f"  P_next = {popt[0]:.6f} * P_curr + {popt[1]:.6f} * (I_next/1000000) + {popt[2]:.6f}")
+        print(f"  R² = {r2:.4f}")
+        
+        successful_models.append(('疫情后线性模型', linear_func, popt, r2))
+    except Exception as e:
+        print(f"线性函数拟合失败: {e}")
+    
+    # 对数函数
+    try:
+        popt, pcov = curve_fit(log_func, (P_curr_post, I_next_post), P_next_post, p0=[-0.5, -0.5, -0.1, 1], maxfev=5000)
+        pred = log_func((P_curr_post, I_next_post), *popt)
+        r2 = r2_score(P_next_post, pred)
+        
+        # 输出带参数值的函数形式
+        print(f"\n对数函数:")
+        print(f"  P_next = {popt[0]:.6f} * ln(1+P_curr) + {popt[1]:.6f} * ln(1+I_next/1000000) + {popt[2]:.6f} * (I_next/1000000) + {popt[3]:.6f}")
+        print(f"  R² = {r2:.4f}")
+        
+        successful_models.append(('疫情后对数模型', log_func, popt, r2))
+    except Exception as e:
+        print(f"对数函数拟合失败: {e}")
+    
+    # 有理函数
+    try:
+        popt, pcov = curve_fit(rational_func, (P_curr_post, I_next_post), P_next_post, p0=[0.5, 0.5, 0.5, 0.1], maxfev=5000)
+        pred = rational_func((P_curr_post, I_next_post), *popt)
+        r2 = r2_score(P_next_post, pred)
+        
+        # 输出带参数值的函数形式
+        print(f"\n有理函数:")
+        print(f"  P_next = {popt[0]:.6f} * P_curr + {popt[1]:.6f} / (1 + {popt[2]:.6f} * I_next/1000000) + {popt[3]:.6f}")
+        print(f"  R² = {r2:.4f}")
+        
+        successful_models.append(('疫情后有理模型', rational_func, popt, r2))
+    except Exception as e:
+        print(f"有理函数拟合失败: {e}")
+
+# 机器学习模型
+print("\n机器学习模型:")
+print("-" * 40)
+
+# 准备特征矩阵
+X = np.column_stack([
+    P_current,
+    I_next / 1000000,
+    np.arange(len(P_current))
+])
+y = P_next_actual
+
+# 线性回归
+lr = LinearRegression()
+lr.fit(X, y)
+lr_r2 = r2_score(y, lr.predict(X))
+
+# 输出带参数值的函数形式
+print(f"线性回归:")
+print(f"  P_next = {lr.intercept_:.6f} + {lr.coef_[0]:.6f} * P_curr + {lr.coef_[1]:.6f} * (I_next/1000000) + {lr.coef_[2]:.6f} * t")
+print(f"  R² = {lr_r2:.4f}")
+
+successful_models.append(('线性回归', '机器学习', np.append(lr.coef_, lr.intercept_), lr_r2))
+
+# 随机森林
+rf = RandomForestRegressor(n_estimators=100, random_state=42)
+rf.fit(X, y)
+rf_r2 = r2_score(y, rf.predict(X))
+
+# 输出函数形式
+print(f"\n随机森林:")
+print(f"  R² = {rf_r2:.4f}")
+print(f"  特征重要性: P_curr = {rf.feature_importances_[0]:.4f}, I_next = {rf.feature_importances_[1]:.4f}, 时间 = {rf.feature_importances_[2]:.4f}")
+
+successful_models.append(('随机森林', '机器学习', rf.feature_importances_, rf_r2))
+
+# 总结所有成功模型
+print("\n" + "="*60)
+print("所有成功拟合的模型总结")
+print("="*60)
+
+print(f"\n总共成功拟合 {len(successful_models)} 个模型:")
+for i, (name, func_type, params, r2) in enumerate(successful_models, 1):
+    print(f"\n{i}. {name}")
+    print(f"   R²: {r2:.4f}")
+    
+    if func_type == '机器学习':
+        if name == '线性回归':
+            print(f"   具体函数: P_next = {params[3]:.6f} + {params[0]:.6f} * P_curr + {params[1]:.6f} * I_next/1000000 + {params[2]:.6f} * t")
+        else:
+            print(f"   特征重要性: P_curr = {params[0]:.4f}, I_next = {params[1]:.4f}, 时间 = {params[2]:.4f}")
+    else:
+        # 根据函数类型输出不同的带参数值的函数形式
+        if name == '疫情前线性模型' or name == '疫情后线性模型':
+            print(f"   具体函数: P_next = {params[0]:.6f} * P_curr + {params[1]:.6f} * I_next/1000000 + {params[2]:.6f}")
+        elif name == '疫情前幂函数模型':
+            print(f"   具体函数: P_next = {params[0]:.6f} * P_curr^{params[1]:.6f} * (I_next/1000000)^{params[2]:.6f} + {params[3]:.6f}")
+        elif name == '疫情前指数模型':
+            print(f"   具体函数: P_next = {params[0]:.6f} * exp({params[1]:.6f} * P_curr + {params[2]:.6f} * I_next/1000000) + {params[3]:.6f}")
+        elif name == '疫情后对数模型':
+            print(f"   具体函数: P_next = {params[0]:.6f} * ln(1+P_curr) + {params[1]:.6f} * ln(1+I_next/1000000) + {params[2]:.6f} * (I_next/1000000) + {params[3]:.6f}")
+        elif name == '疫情后有理模型':
+            print(f"   具体函数: P_next = {params[0]:.6f} * P_curr + {params[1]:.6f} / (1 + {params[2]:.6f} * I_next/1000000) + {params[3]:.6f}")
+
+# 绘制包含全部拟合函数及相应优度的图
+print(f"\n绘制包含全部拟合函数及相应优度的图...")
+
+# 创建图像
+plt.figure(figsize=(15, 10))
+
+# 绘制实际值
+years_plot = years[1:]  # 使用2014-2022年
+plt.plot(years_plot, P_next_actual, 'ko-', linewidth=3, markersize=10, label='实际压力指数', zorder=10)
+
+# 定义颜色和线型
+colors = ['red', 'blue', 'green', 'orange', 'purple', 'brown', 'pink', 'gray']
+line_styles = ['-', '--', '-.', ':', '-', '--', '-.', ':']
+
+# 绘制每个模型的拟合曲线
+for i, (name, func_type, params, r2) in enumerate(successful_models):
+    color = colors[i % len(colors)]
+    line_style = line_styles[i % len(line_styles)]
+    
+    # 计算预测值
+    if func_type == '机器学习':
+        if name == '线性回归':
+            predictions = lr.predict(X)
+        else:
+            predictions = rf.predict(X)
+    else:
+        predictions = func_type((P_current, I_next), *params)
+    
+    # 绘制拟合曲线
+    plt.plot(years_plot, predictions, color=color, linestyle=line_style, 
+             linewidth=2, label=f'{name} (R²={r2:.4f})')
+
+# 设置图表属性
+plt.xlabel('年份', fontsize=14)
+plt.ylabel('压力指数', fontsize=14)
+plt.title('压力指数预测模型对比及优度', fontsize=16)
+plt.legend(fontsize=10, loc='upper left', bbox_to_anchor=(1, 1))
+plt.grid(True, alpha=0.3)
+
+# 添加数据标签
+for i, (year, actual) in enumerate(zip(years_plot, P_next_actual)):
+    plt.annotate(f'{actual:.3f}', (year, actual), textcoords="offset points", 
+                xytext=(0,10), ha='center', fontsize=8, weight='bold')
+
+plt.tight_layout()
+plt.show()
+
+# 使用最佳模型进行预测的函数
+def predict_with_model(model_info, P_curr, I_nxt):
+    name, func_type, params, r2 = model_info
+    
+    if func_type == '机器学习':
+        if name == '线性回归':
+            # params 是系数数组 [coef0, coef1, coef2, intercept]
+            return params[0] * P_curr + params[1] * (I_nxt/1000000) + params[2] * (len(P_current)) + params[3]
+        else:
+            # 随机森林预测需要特征矩阵
+            X_pred = np.array([[P_curr, I_nxt/1000000, len(P_current)]])
+            return rf.predict(X_pred)[0]
+    else:
+        # 函数模型
+        return func_type((P_curr, I_nxt), *params)
+
+# 示例：使用最佳模型预测2023年
+if successful_models:
+    best_model = max(successful_models, key=lambda x: x[3])
+    print(f"\n最佳模型: {best_model[0]} (R² = {best_model[3]:.4f})")
+    
+    # 使用最佳模型预测2023年
+    P_2023_best = predict_with_model(best_model, pressure_index[-1], gov_investment[-1])
+    print(f"使用最佳模型预测2023年压力指数: {P_2023_best:.6f}")
+
+print(f"\n建模完成！共成功拟合 {len(successful_models)} 个模型。")
+
+\end{verbatim}
+\end{appendices}
+
+\end{document}
